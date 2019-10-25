@@ -77,7 +77,7 @@ class ProduitController extends Controller
                 ];
 
             } elseif(move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                $produit->image = 'http://'.$_SERVER['HTTP_HOST'].'/togosime/'.$target_file;
+                $produit->image = 'http://'.$_SERVER['HTTP_HOST'].'/'.$target_file;
             }
         }
 
@@ -153,7 +153,7 @@ class ProduitController extends Controller
                 ];
 
             } elseif(move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                $produit->image = 'http://'.$_SERVER['HTTP_HOST'].'/togosime/'.$target_file;
+                $produit->image = 'http://'.$_SERVER['HTTP_HOST'].'/'.$target_file;
             }
         }
         if($request->prix != ''){
@@ -164,7 +164,7 @@ class ProduitController extends Controller
         }
 
         $produit->save();
-        $produit = Produit::with('categorieProduit')->find($id);
+        $produit = Produit::with('categorieProduit', 'partenaire')->find($id);
         return $produit;
     }
 

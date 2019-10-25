@@ -91,14 +91,14 @@
       </v-flex>
     </v-layout>
     <br><br>
-    <v-dialog v-model="basic2.dialog" persistent max-width="600px" >
+    <v-dialog v-model="basic2.dialog" persistent max-width="650px" >
       <v-card :color="basic2.bgColor" style="color: #FFFFFF">
         <v-card-title>
           <span class="headline" >Apercu</span>
         </v-card-title>
         <v-divider></v-divider>
         <v-card-text>
-          <img max-width="550px" :src="partenaire.logo">
+          <img max-width="300px" :src="partenaire.logo">
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>

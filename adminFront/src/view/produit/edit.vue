@@ -273,7 +273,7 @@
 					}
           ).then((response) => {
             console.log(response.data)
-            // vm.produit = response.data
+            vm.produit = response.data
 
             this.alertMessage = 'Produit mis à jour avec success'
             this.alert.showSuccess = true
