@@ -1,0 +1,44 @@
+.tool-bar-item tr td a {
+    text-decoration: none;
+}
+
+.tool-bar-item tr td a div {
+    border-bottom: 1px solid #DDD;
+    color: #555;
+    transition-duration: 0.2s;
+}
+
+.tool-bar-item tr td a div:hover {
+    background-color: #DDD;
+    padding-left: 10px;
+    transition-duration: 0.3s;
+}
+
+#search-input {
+    width: 450px;
+}
+
+.nav-item.dropdown {
+    display: none;
+}
+
+#smSearch {
+    display: none;
+}
+
+@media(max-width: 992px) {
+    .nav-item.dropdown {
+        display: block;
+    }
+    #search-input {
+        display: none !important;
+    }
+
+    #categorieBar {
+        display: none;
+    }
+
+    #smSearch {
+        display: block;
+    }
+}
