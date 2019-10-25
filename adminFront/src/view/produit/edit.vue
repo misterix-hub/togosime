@@ -61,6 +61,16 @@
                     item-value="id"
                   ></v-autocomplete>
                 </v-flex>
+                 <v-flex lg12 xs12>
+                  <v-autocomplete
+                    label="Fournisseur"
+                    :items="partenaires"
+                    v-model="produit.partenaire_id"
+                    autocomplete
+                    item-text="nom"
+                    item-value="id"
+                  ></v-autocomplete>
+                </v-flex>
                 <v-flex xs6 md6 lg6>
                   <v-btn
                       class="mx-0 font-weight-light"
@@ -121,9 +131,11 @@
         produit: {
           nom: '',
           description: '',
-          categorie_produit_id: ''
+          categorie_produit_id: '',
+          partenaire_id: '',
 
         },
+        partenaires: [],
         alert: {
           showSuccess: false,
           showError: false
@@ -145,6 +157,7 @@
       }
 
       this.getCategories()
+      this.getPartenaires()
 
     },
     methods: {
@@ -162,6 +175,17 @@
 
           this.axios.get('/api/categories').then((response) => {
             this.categories = response.data
+            //console.log('gacarttte to update',response.data)
+
+          });
+
+      },
+      getPartenaires () {
+          let vm = this;
+          console.log('get part')
+
+          this.axios.get('/api/partenaires/fournisseurs').then((response) => {
+            this.partenaires = response.data
             //console.log('gacarttte to update',response.data)
 
           });
@@ -188,6 +212,8 @@
           produit.append("description", this.produit.description);
           produit.append("prix", this.produit.prix);
           produit.append("categorie_produit_id", this.produit.categorie_produit_id);
+          produit.append("partenaire_id", this.produit.partenaire_id);
+
 
           this.axios.post('/api/produits/store', produit,
           {
@@ -236,6 +262,7 @@
           produit.append("description", this.produit.description);
           produit.append("prix", this.produit.prix);
           produit.append("categorie_produit_id", this.produit.categorie_produit_id);
+          produit.append("partenaire_id", this.produit.partenaire_id);
 
           this.axios.post('/api/produits/'+this.$props.id+'/update', produit,
            {
@@ -246,7 +273,7 @@
 					}
           ).then((response) => {
             console.log(response.data)
-            vm.produit = response.data
+            // vm.produit = response.data
 
             this.alertMessage = 'Produit mis à jour avec success'
             this.alert.showSuccess = true

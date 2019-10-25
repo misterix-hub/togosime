@@ -70,7 +70,7 @@
                         <v-icon>delete</v-icon>
                       </v-btn>
                     </td>
-                  </template>0
+                  </template>
                 </v-data-table>
               </v-card-text>
 

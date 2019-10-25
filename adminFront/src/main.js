@@ -23,7 +23,8 @@ import './styles/global.css';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-axios.defaults.baseURL = 'http://127.0.0.1/togosime/';
+axios.defaults.baseURL = 'http://127.0.0.1:8000/';
+// axios.defaults.baseURL = 'http://127.0.0.1/togosime/public/';
 // axios.defaults.baseURL = 'http://192.168.33.127:8000/';
 
 Vue.use(VueAxios, axios);

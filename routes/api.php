@@ -46,8 +46,11 @@ Route::post('login', 'Api\PassportController@login');
     /*
         DEBUT ROUTES CRUD PRODUITS
     */
+
     Route::get('partenaires', 'Api\PartenaireController@index');
+    Route::get('partenaires/fournisseurs', 'Api\PartenaireController@getFournisseurs');
     Route::post('partenaires', 'Api\PartenaireController@store');
+    Route::get('partenaires/{id}/produits', 'Api\PartenaireController@getProduits');
     Route::get('partenaires/{id}', 'Api\PartenaireController@show');
     Route::put('partenaires/{id}', 'Api\PartenaireController@update');
     Route::post('partenaires/{id}/update', 'Api\PartenaireController@update');

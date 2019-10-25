@@ -4,28 +4,28 @@
       <!-- Widgets-->
 
       <v-flex d-flex lg3 sm6 xs12>
-        <widget icon="people" :title="total_produit" subTitle= 'Total produit' supTitle="Total produit" color="#00b297"/>
+        <widget icon="people" :title="total_produit" subTitle= 'Total produit' supTitle="Total produit" color="#0ba119"/>
       </v-flex>
       <v-flex d-flex lg3 sm6 xs12>
-        <widget icon="people" :title="total_categorie_produit" subTitle= 'Total categorie' supTitle="Total categorie" color="#00b297"/>
+        <widget icon="people" :title="total_categorie_produit" subTitle= 'Total categorie' supTitle="Total categorie" color="#0ba119"/>
       </v-flex>
       <v-flex d-flex lg3 sm6 xs12>
-        <widget icon="people" :title="total_gamme_produit" subTitle= 'Total gamme' supTitle="Total gamme" color="#00b297"/>
+        <widget icon="people" :title="total_gamme_produit" subTitle= 'Total gamme' supTitle="Total gamme" color="#0ba119"/>
       </v-flex>
       <v-flex d-flex lg3 sm6 xs12>
-        <widget icon="people" :title="total_fournisseur" subTitle= 'Total fournisseur' supTitle="Total fournisseur" color="#00b297"/>
+        <widget icon="people" :title="total_fournisseur" subTitle= 'Total fournisseur' supTitle="Total fournisseur" color="#0ba119"/>
       </v-flex>
       <v-flex d-flex lg3 sm6 xs12>
-        <widget icon="money" :title="total_commande" subTitle= 'total commandes' supTitle="total commandes" color="#dc3545"/>
+        <widget icon="money" :title="total_commande" subTitle= 'total commandes' supTitle="total commandes" color="#0ba119"/>
       </v-flex>
       <v-flex d-flex lg3 sm6 xs12>
-        <widget icon="credit_card" :title="total_commande_valide" subTitle= 'Commandes validés' supTitle="Commandes validés" color="#0866C6"/>
+        <widget icon="credit_card" :title="total_commande_valide" subTitle= 'Commandes validés' supTitle="Commandes validés" color="#0ba119"/>
       </v-flex>
       <v-flex d-flex lg3 sm6 xs12>
-        <widget icon="credit_card" :title="total_commande_attente" subTitle= 'Commandes en attente' supTitle="Commandes en attente" color="#0866C6"/>
+        <widget icon="credit_card" :title="total_commande_attente" subTitle= 'Commandes en attente' supTitle="Commandes en attente" color="#0ba119"/>
       </v-flex>
        <v-flex d-flex lg3 sm6 xs12>
-        <widget icon="people" :title="total_partenaire" subTitle= 'Total partenaire' supTitle="Total partenaire" color="#00b297"/>
+        <widget icon="people" :title="total_partenaire" subTitle= 'Total partenaire' supTitle="Total partenaire" color="#0ba119"/>
       </v-flex>
 
       <v-flex d-flex lg6 sm12 xs12>

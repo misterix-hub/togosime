@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Partenaire;
+use App\Produit;
 use Illuminate\Http\Request;
 
 class PartenaireController extends Controller
@@ -16,6 +17,13 @@ class PartenaireController extends Controller
     public function index()
     {
         return Partenaire::orderBy('id', 'DESC')->get();
+    }
+
+    public function getFournisseurs(){
+        return Partenaire::where('fournisseur', true)->orderBy('id', 'DESC')->get();
+    }
+    public function getProduits($id){
+        return Produit::with('categorieProduit')->where('partenaire_id', $id)->orderBy('id', 'DESC')->get();
     }
 
     /**
@@ -47,10 +55,11 @@ class PartenaireController extends Controller
         if($request->description != ''){
             $partenaire->description = $request->description;
         }
+
         // return $request->fournisseur;
         // $partenaire->fournisseur = $request->fournisseur;
         if($request->fournisseur != ''){
-            if($request->fournisseur == 'true'){
+            if($request->fournisseur == 1){
                 $partenaire->fournisseur = 1;
             } else {
                 $partenaire->fournisseur = 0;

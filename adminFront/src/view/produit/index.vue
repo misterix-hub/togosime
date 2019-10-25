@@ -58,7 +58,7 @@
                     <td>  {{ props.item.nom }}   </td>
                     <td>  {{ props.item.description }}   </td>
                     <td>  {{ props.item.prix }}   </td>
-                    <td>  <span v-if="props.item.categorie">{{ props.item.categorie.nom }}</span><span v-else>---</span>   </td>
+                    <td>  <span v-if="props.item.categorie_produit">{{ props.item.categorie_produit.nom }}</span><span v-else>-----</span>   </td>
                     <td>
                       <v-btn  depressed outline icon fab dark color="primary" small @click.native="$router.push({ name: 'product_edit', params: {id: props.item.id} })">
                         <!-- , initCEAR(props.item.country_id, props.item.account_type_id) -->

@@ -18,7 +18,7 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        return Produit::orderBy('id', 'DESC')->get();
+        return Produit::orderBy('id', 'DESC')->with('categorieProduit')->get();
     }
 
     /**
@@ -80,7 +80,7 @@ class ProduitController extends Controller
                 $produit->image = 'http://'.$_SERVER['HTTP_HOST'].'/togosime/'.$target_file;
             }
         }
-        
+
         $produit->save();
         return $produit;
 
@@ -164,7 +164,7 @@ class ProduitController extends Controller
         }
 
         $produit->save();
-
+        $produit = Produit::with('categorieProduit')->find($id);
         return $produit;
     }
 
