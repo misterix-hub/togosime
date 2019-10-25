@@ -1,5 +1,8 @@
-/node_modules
+/adminFront/node_modules
 /public/hot
+/public/images/
+/public/mdb/
+/public/profilePhotos/
 /public/storage
 /storage/*.key
 /vendor
