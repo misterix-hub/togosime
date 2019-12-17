@@ -91,40 +91,33 @@
                         <i class="icofont-alarm"></i>
                         <b>COMMUNIQUES ET ANNONCES</b>
                     </div>
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div id="carouselExampleControls00" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner" style="height: 410px; overflow: auto;">
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="{{ URL::asset('db/annonces/1575129213.jpg') }}" alt="">
-                                <div class="grey lighten-3 text-center pr-2 pl-2 pt-2 pb-2">
-                                    <b>Titre de l'annonce ou de l'actialité ici</b>
+                            @foreach ($annonces as $annonce)
+                                @if ($loop->first)
+                                    
+                                @endif
+                                  
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="{{ URL::asset('db/annonces/1575129213.jpg') }}" alt="">
+                                    <div class="grey lighten-3 text-center pr-2 pl-2 pt-2 pb-2">
+                                        <b>Titre de l'annonce ou de l'actialité ici</b>
+                                    </div>
+                                    <div class="mt-3" style="text-align: justify;">
+                                        Lorem ipsum dolor sit amet conse
+                                        ctetur adipisicing elit. Reprehe
+                                        nderit in corporis harum perspic
+                                        nderit in
+                                        <a href="">Lire plus</a>
+                                    </div><br />
                                 </div>
-                                <div class="mt-3" style="text-align: justify;">
-                                    Lorem ipsum dolor sit amet conse
-                                    ctetur adipisicing elit. Reprehe
-                                    nderit in corporis harum perspic
-                                    nderit in
-                                    <a href="">Lire plus</a>
-                                </div><br />
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="{{ URL::asset('db/annonces/1575129213.jpg') }}" alt="">
-                                <div class="grey lighten-3 text-center pr-2 pl-2 pt-2 pb-2">
-                                    <b>Titre de l'annonce ou de l'actialité ici</b>
-                                </div>
-                                <div class="mt-3" style="text-align: justify;">
-                                    Lorem ipsum dolor sit amet conse
-                                    ctetur adipisicing elit. Reprehe
-                                    nderit in corporis harum perspic
-                                    nderit in
-                                    <a href="">Lire plus</a>
-                                </div><br />
-                            </div>
+                            @endforeach
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <a class="carousel-control-prev" href="#carouselExampleControls00" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <a class="carousel-control-next" href="#carouselExampleControls00" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                         </a>
@@ -183,33 +176,7 @@
         </div><br /><br />
     </div>
 
-    <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-        <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content" style="border-radius: 20px;">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">Contacter pour le produit</h6>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <a href="" id="whatsAppLink" class="btn btn-md btn-success btn-block mb-2" style="border-radius: 25px;">
-                        <i class="icofont-whatsapp"></i>
-                        Conacter par whatsapp
-                    </a>
-                    <a href="sms: +22891732811" class="btn btn-md btn-cyan btn-block mb-2" style="border-radius: 25px;">
-                        <i class="icofont-comment"></i>
-                        Conacter par message 
-                    </a>
-                    <a href="tel: +22899051969" class="btn btn-md btn-red btn-block mb-2" style="border-radius: 25px;">
-                        <i class="icofont-phone"></i>
-                        Conacter par appel
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('visitors.included.modal')
 
 @endsection
 
