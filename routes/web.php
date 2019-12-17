@@ -1,7 +1,10 @@
 <?php
 
 Route::get('/', 'Visitors\MainController@index')->name('index');
-Route::get('admin', 'Admin\MainController@index')->name('indexAdmin');
+Route::get('/produits/categorie/{id}', 'Visitors\ProductViewController@produitCategorie')->name('produit_categorie');
+Route::get('/produits/rechercher/{contenu}', 'Visitors\ProductViewController@produitRechercher')->name('produit_rechecher');
+
+Route::get('admin', 'Admin\Mainontroller@index')->name('indexAdmin');
 Route::get('admin/login', 'Admin\MainController@login')->name('login');
 
 /* PAGES - ADMINISTRATION */
