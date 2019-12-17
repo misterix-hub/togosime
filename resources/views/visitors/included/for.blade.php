@@ -1,22 +1,15 @@
-@for($i = 0; $i < 4; $i++)
-    <div class="col-lg-3 col-md-6 col-sm-12">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title text-center green-text">
-                    <i class="icofont-home icofont-3x"></i>
-                </h4>
-                <h5 class="text-center">Titre de la page</h5>
-
-                <div class="text-center" style="height: 120px; overflow: auto;">
-                    Lorem ipsum dolor sit amet consectetur,
-                    adipisicing elit. Maiores amet quos sit
-                    magni iure magnam eos, sunt esse dolor ...
-                    <a href="">
-                        <i class="fa green-text fa-plus" aria-hidden="true"></i>
-                        Lire plus
-                    </a>
-                </div>
-            </div>
-        </div><br />
+@foreach ($produits as $produit)
+    <div class="col-lg-4 col-md-4 col-sm-12">
+        <div style="max-height: 150px; overflow: hidden;">
+            <a href=""><img src="{{ URL::asset($produit->image) }}" alt="img-produit" width="100%"></a>
+        </div>
+        <b class="red-text"><b>{{ $produit->prix }} FCFA</b></b>
+        <div><a href=""><b>{{ $produit->nom }}</b></a></div>
+        <div>
+            <a href="#!" data-toggle="modal" data-target="#basicExampleModal" class="btn btn-orange btn-sm ml-0 z-depth-0 contacter-modal" data-value="{{ $produit->nom }}">
+                Contacter
+            </a>
+        </div>
+        <br />
     </div>
-@endfor
+@endforeach
