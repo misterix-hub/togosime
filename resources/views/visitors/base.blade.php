@@ -150,5 +150,6 @@
     <script src="{{URL::asset('mdb/js/jquery.min.js')}}"></script>
     <script src="{{URL::asset('mdb/js/bootstrap.min.js')}}"></script>
     <script src="{{URL::asset('mdb/js/mdb.min.js')}}"></script>
+    @yield('script')
 </body>
 </html>
