@@ -16,6 +16,16 @@ class ProductViewController extends Controller
             'categories' => Categorie::all(),
         ]);
     }
+    public function produitDetail($id) {
+        $produit = Produit::find($id);
+        if(is_object($produit)){
+            return view('visitors.produit.produitDetail', [
+                'produit' => $produit,
+                'categories' => Categorie::all(),
+            ]);
+        }
+        return redirect()->route('index');
+    }
     public function produitRechercher($contenu) {
         $produits = Produit::where('nom', 'LIKE', "%{$contenu}%")->get();
         return view('visitors.produit.produitSearchResult', [
