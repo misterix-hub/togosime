@@ -82,19 +82,21 @@
         <div class="row">
             <div class="col-lg-8 col-md-12 col-sm-12">
                 <div class="row">
-                    @for ($i = 0; $i < 6; $i++)
+                    @foreach ($produits as $produit)
                         <div class="col-lg-4 col-md-4 col-sm-12">
-                            <a href=""><img src="{{ URL::asset('db/annonces/1575128023.jpg') }}" alt="img-produit" width="100%"></a>
-                            <b class="red-text"><b>1500 F CFA</b></b>
-                            <div><a href=""><b>Le nom du produit ici à cet endroit</b></a></div>
+                            <div style="max-height: 150px; overflow: hidden;">
+                                <a href=""><img src="{{ URL::asset($produit->image) }}" alt="img-produit" width="100%"></a>
+                            </div>
+                            <b class="red-text"><b>{{ $produit->prix }} FCFA</b></b>
+                            <div><a href=""><b>{{ $produit->nom }}</b></a></div>
                             <div>
-                                <a href="" class="btn btn-orange btn-sm ml-0 z-depth-0">
+                                <a href="#!" data-toggle="modal" data-target="#basicExampleModal" class="btn btn-orange btn-sm ml-0 z-depth-0 contacter-modal" data-value="{{ $produit->nom }}">
                                     Contacter
                                 </a>
                             </div>
                             <br />
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
             <div class="col-lg-4 col-md-12 col-sm-12">
@@ -147,28 +149,9 @@
             </div>
         </div><br /><br />
         <div class="row">
-            @for($i = 0; $i < 4; $i++)
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title text-center green-text">
-                                <i class="icofont-home icofont-3x"></i>
-                            </h4>
-                            <h5 class="text-center">Titre de la page</h5>
 
-                            <div class="text-center" style="height: 120px; overflow: auto;">
-                                Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit. Maiores amet quos sit
-                                magni iure magnam eos, sunt esse dolor ...
-                                <a href="">
-                                    <i class="fa green-text fa-plus" aria-hidden="true"></i>
-                                    Lire plus
-                                </a>
-                            </div>
-                        </div>
-                    </div><br />
-                </div>
-            @endfor
+            @include('visitors.included.for')
+            
         </div><br /><br />
         
         <div class="row">
@@ -195,4 +178,44 @@
         </div><br /><br />
     </div>
 
+    <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content" style="border-radius: 20px;">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="exampleModalLabel">Contacter pour le produit</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <a href="https://wa.me/22891732811?text=Bonjour" id="whatsAppLink" class="btn btn-md btn-success btn-block mb-2" style="border-radius: 25px;">
+                        <i class="icofont-whatsapp"></i>
+                        Conacter par whatsapp
+                    </a>
+                    <a href="sms: +22891732811" class="btn btn-md btn-cyan btn-block mb-2" style="border-radius: 25px;">
+                        <i class="icofont-comment"></i>
+                        Conacter par message 
+                    </a>
+                    <a href="tel: +22899051969" class="btn btn-md btn-red btn-block mb-2" style="border-radius: 25px;">
+                        <i class="icofont-phone"></i>
+                        Conacter par appel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function() {
+            $('.contacter-modal').each(function() {
+                $(this).click(function() {
+                    $('a#whatsAppLink').attr('href', "Bonjour, j'ai" + $(this).attr('data-value') + "");
+                });
+            });
+        });
+    </script>
 @endsection
