@@ -2,7 +2,7 @@
 
 Route::get('/', 'Visitors\MainController@index')->name('index');
 Route::get('/produits/categorie/{id}', 'Visitors\ProductViewController@produitCategorie')->name('produit_categorie');
-Route::get('/produits/rechercher/{contenu}', 'Visitors\ProductViewController@produitRechercher')->name('produit_rechercher');
+Route::get('/produits/rechercher', 'Visitors\ProductViewController@produitRechercher')->name('produit_rechercher');
 Route::get('/produits/{id}/detail', 'Visitors\ProductViewController@produitDetail')->name('produit_detail');
 
 Route::get('admin', 'Admin\Mainontroller@index')->name('indexAdmin');

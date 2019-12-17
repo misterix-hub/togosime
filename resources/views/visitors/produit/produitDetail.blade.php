@@ -24,4 +24,5 @@
         <br />
     </div>
 </div>
+@include('visitors.included.modal')
 @endsection

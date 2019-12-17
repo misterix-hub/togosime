@@ -26,8 +26,10 @@ class ProductViewController extends Controller
         }
         return redirect()->route('index');
     }
-    public function produitRechercher($contenu) {
-        $produits = Produit::where('nom', 'LIKE', "%{$contenu}%")->get();
+    public function produitRechercher(Request $request) {
+        $produits = Produit::where('nom', 'LIKE', "%{$request->search}%")
+        ->orWhere('description', 'LIKE', "%{$request->search}%")
+        ->get();
         return view('visitors.produit.produitSearchResult', [
             'produits' => $produits,
             'categories' => Categorie::all(),
