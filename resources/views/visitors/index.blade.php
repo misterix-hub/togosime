@@ -82,21 +82,7 @@
         <div class="row">
             <div class="col-lg-8 col-md-12 col-sm-12">
                 <div class="row">
-                    @foreach ($produits as $produit)
-                        <div class="col-lg-4 col-md-4 col-sm-12">
-                            <div style="max-height: 150px; overflow: hidden;">
-                                <a href=""><img src="{{ URL::asset($produit->image) }}" alt="img-produit" width="100%"></a>
-                            </div>
-                            <b class="red-text"><b>{{ $produit->prix }} FCFA</b></b>
-                            <div><a href=""><b>{{ $produit->nom }}</b></a></div>
-                            <div>
-                                <a href="#!" data-toggle="modal" data-target="#basicExampleModal" class="btn btn-orange btn-sm ml-0 z-depth-0 contacter-modal" data-value="{{ $produit->nom }}">
-                                    Contacter
-                                </a>
-                            </div>
-                            <br />
-                        </div>
-                    @endforeach
+                    @include('visitors.included.for', ["produits" => $produits])
                 </div>
             </div>
             <div class="col-lg-4 col-md-12 col-sm-12">
@@ -106,7 +92,7 @@
                         <b>COMMUNIQUES ET ANNONCES</b>
                     </div>
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
+                        <div class="carousel-inner" style="height: 410px; overflow: auto;">
                             <div class="carousel-item active">
                                 <img class="d-block w-100" src="{{ URL::asset('db/annonces/1575129213.jpg') }}" alt="">
                                 <div class="grey lighten-3 text-center pr-2 pl-2 pt-2 pb-2">
@@ -116,8 +102,7 @@
                                     Lorem ipsum dolor sit amet conse
                                     ctetur adipisicing elit. Reprehe
                                     nderit in corporis harum perspic
-                                    iatis temporibus delectus quo mi
-                                    nima ipsum blanditiis magni ex ...
+                                    nderit in
                                     <a href="">Lire plus</a>
                                 </div><br />
                             </div>
@@ -130,8 +115,7 @@
                                     Lorem ipsum dolor sit amet conse
                                     ctetur adipisicing elit. Reprehe
                                     nderit in corporis harum perspic
-                                    iatis temporibus delectus quo mi
-                                    nima ipsum blanditiis magni ex ...
+                                    nderit in
                                     <a href="">Lire plus</a>
                                 </div><br />
                             </div>
@@ -150,7 +134,28 @@
         </div><br /><br />
         <div class="row">
 
-            @include('visitors.included.for')
+            @for($i = 0; $i < 4; $i++)
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title text-center green-text">
+                                <i class="icofont-home icofont-3x"></i>
+                            </h4>
+                            <h5 class="text-center">Titre de la page</h5>
+
+                            <div class="text-center" style="height: 120px; overflow: auto;">
+                                Lorem ipsum dolor sit amet consectetur,
+                                adipisicing elit. Maiores amet quos sit
+                                magni iure magnam eos, sunt esse dolor ...
+                                <a href="">
+                                    <i class="fa green-text fa-plus" aria-hidden="true"></i>
+                                    Lire plus
+                                </a>
+                            </div>
+                        </div>
+                    </div><br />
+                </div>
+            @endfor
             
         </div><br /><br />
         
@@ -189,7 +194,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <a href="https://wa.me/22891732811?text=Bonjour" id="whatsAppLink" class="btn btn-md btn-success btn-block mb-2" style="border-radius: 25px;">
+                    <a href="" id="whatsAppLink" class="btn btn-md btn-success btn-block mb-2" style="border-radius: 25px;">
                         <i class="icofont-whatsapp"></i>
                         Conacter par whatsapp
                     </a>
@@ -213,7 +218,7 @@
         $(document).ready(function() {
             $('.contacter-modal').each(function() {
                 $(this).click(function() {
-                    $('a#whatsAppLink').attr('href', "Bonjour, j'ai" + $(this).attr('data-value') + "");
+                    $('a#whatsAppLink').attr("href", "https://wa.me/22891732811?text=Bonjour, j'ai vu le produit " + $(this).attr('data-value') + " sur la plate-forme togosime et je suis intéressé !");
                 });
             });
         });
