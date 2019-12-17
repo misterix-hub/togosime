@@ -69,8 +69,8 @@
                     </a>
                 </td>
                 <td>
-                    <form action="" method="post" class="search-form">
-                        @csrf
+                    <form action="/produits/rechercher" method="get" class="search-form">
+                        {{-- @csrf --}}
 
                         <input type="text" name="search" id="search" placeholder="Rechercher un produit ...">
                         <button class="green darken-3 white-text" type="submit">
@@ -96,14 +96,14 @@
     <div class="sous-menu">
         <div class="container-fluid">
             <div class="row">
-                @forelse ($categories as $categorie)    
-                    <a href="">
+                @forelse ($categories as $categorie)
+                    <a href="{{ route('produit_categorie', ['id' => $categorie->id]) }}">
                         <div>
                             <strong>{{ $categorie->nom }}</strong>
                         </div>
                     </a>
                 @empty
-                    
+
                 @endforelse
             </div>
         </div>
